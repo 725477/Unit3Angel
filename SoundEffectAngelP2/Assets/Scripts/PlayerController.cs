@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip crashSound;
     public float jumpForce = 10;
     public float gravityModifier;
+    public float doubleJumpForce;
+    public bool doubleJumpUsed = false;
     public bool isOnGround = true;
     public bool gameOver = false;
 
@@ -36,9 +38,16 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
-        }
 
-    }
+            doubleJumpUsed = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && !doubleJumpUsed)
+    }   {
+           doubleJumpUsed=true;
+           playerRb.AddForce(Vector3.up* doubleJumpForce, ForceMode.Impulse);
+           playerAnim.Play("Running_Jump",3,0f);
+           playerAudio.PlayOneShot(jumpSound,1.0f);
+        }
 
     private void OnCollisionEnter(Collision collision)
     {
