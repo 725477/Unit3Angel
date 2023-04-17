@@ -660,8 +660,11 @@ MonoBehaviour:
   crashSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
   jumpForce: 700
   gravityModifier: 1.5
+  doubleJumpForce: 0
+  doubleJumpUsed: 0
   isOnGround: 1
   gameOver: 0
+  doubleSpeed: 0
 --- !u!65 &874263555
 BoxCollider:
   m_ObjectHideFlags: 0
